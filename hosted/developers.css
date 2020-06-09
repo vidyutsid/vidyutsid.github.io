@@ -1,0 +1,17 @@
+.card {
+	background-color: #ccc;
+	cursor: url(mouse.png), pointer;
+	display:block;
+}
+#info {
+	float: right;
+	background-color: #ccc;
+	width: 30%;
+	font-size: 24px;
+}
+#cards {
+	float: left;
+	background-color: #ccc;
+	width: 40%;
+	font-size: 24px;
+}

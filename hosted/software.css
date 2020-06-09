@@ -1,0 +1,41 @@
+#mysidenav a
+{
+  position: absolute;
+  left: -120px;
+  transition: 0.5s;
+  padding: 20px;
+  width: 100px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+}
+@media only screen and (max-width: 800px) {
+#mysidenav a {
+	left: 0;
+}
+}
+#mysidenav a:hover
+{
+  left: 0;
+}
+#Home
+{
+  top: 200px;
+  background-color: #4CAF50;
+}
+#developers
+{
+  top:270px;
+  background-color: red;
+}
+#what
+{
+  top: 340px;
+  background-color: blue;
+}
+#features
+{
+  top: 435px;
+  background-color: brown;
+}
