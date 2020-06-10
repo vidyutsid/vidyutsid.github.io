@@ -1,14 +1,301 @@
 <html>
 	<head>
-		<title> Vidyut Starter</title>
-	</head>
-	<body>
-		<h1>Revised</h1>
-		<p>This is a starter</p>
-		<h1>are3 you crazy?</h1>
-		<p>re</p>
-		<p>this is just a test</p>
-		<p>This is just a test</p>
-		<p>re<a>
-	</body>
-</html>
+		<title>v.com</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<style>
+			body
+			{
+			margin: 0;
+			}
+			.coreinfo
+			{
+			background-color: #f1f1f1;
+			padding: 40px;
+			text-align: center;
+			color: black;
+			}
+			#navbar
+			{
+ 			overflow: hidden;
+  			background-color: #333;
+			}
+			#navbar a
+			{
+			float: left;
+			display: block;
+			color: #f2f2f2;
+			text-align: center;
+			padding: 16px 18px;
+			text-decoration: none;
+			}
+			#navbar a.green
+			{
+			background-color: #4CAF50;
+			color: white;
+			}
+			#navbar a:hover:not(.green)
+			{
+			background-color: #ddd;
+			color: black;
+			}
+			.dropbtn
+			{
+			background-color: #4caf50;
+			color: white;
+			padding: 16px;
+			font-size: 16px;
+			border: none;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+			}
+			.dropdown-content a:hover
+			{
+			background-color: #aca9a9;
+			}
+			.dropdown
+			{
+			position: relative;
+			display: inline-block;
+			}
+			.dropdown-content
+			{
+			display: none;
+			position: absolute;
+			background-color: #f9f9f9;
+			min-width: 160px;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			z-index: 1;
+			}
+			.dropdown-content a
+			{
+			color: black;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+			}
+			.dropdown-content a:hover
+			{
+			background-color: #aca9a9;
+			}
+			.dropdown:hover .dropdown-content
+			{
+			display: block;
+			}
+			.dropdown:hover .dropbtn
+			{
+			background-color: #3e8e41;
+			}
+			#mysidenav a
+			{
+			position: absolute;
+			left: -120px;
+			transition: 0.5s;
+			padding: 20px;
+			width: 100px;
+			text-decoration: none;
+			font-size: 20px;
+			color: white;
+			border-radius: 0 5px 5px 0;
+			}
+			#mysidenav a:hover
+			{
+			left: 0;
+			}
+			#about_us
+			{
+			top: 300px;
+			background-color: #4caf50;
+			}
+			#feedback
+			{
+			top: 370px;
+			background-color: red;
+			}
+			#our_email
+			{
+			top: 440px;
+			background-color: blue;
+			}
+			#rate_us
+			{
+			top: 510px;
+			background-color: brown;
+			}
+			.sticky
+			{
+			position: fixed;
+			top: 0;
+			width: 100%;
+			}
+			#footer
+			{
+			background-color: #d1d1d1;
+			padding: 100px;
+			margin-top: 25px;
+			text-align: center;
+			}
+			.cssbutton
+			{
+			background-color: #4caf50;
+			border: none;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			cursor: pointer;
+			}
+			.cssbutton:hover
+			{
+			background-color: #ddd;
+			color: black;
+			}
+			.center
+			{
+			text-align: center;
+			color: black;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+			}
+			.dropdown-content a:hover
+			{
+			background-color: #aca9a9;
+			}
+			img
+			{
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			}
+			#loader
+			{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			z-index: 1;
+			width: 120px;
+			height: 120px;
+			margin: -75px 0 0 -75px;
+			border: 16px solid #f3f3f3;
+			border-radius: 50%;
+			border-top: 16px solid #3498db;
+			border-right: 16px solid #333;
+			border-bottom: 16px solid red;
+			border-left: 16px solid orange;
+			-webkit-animation: spin 0.5s linear infinite;
+			animation: spin 0.5s linear infinite;
+			}
+			@-webkit-keyframes spin
+			{
+			0%{ -webkit-transform: rotate(0deg); }
+			100%{ -webkit-transform: rotate(360deg); }
+			}
+			@keyframes spin
+			{
+			0%{ transform: rotate(0deg); }
+			100%{ transform: rotate(360deg); }
+			}
+		</style>
+		</head>
+		<body onload="done()">
+
+			<div id="loader"></div>
+
+			<div style="display: none;"  id="content" class="animation">
+
+				<div class="coreinfo" id="Home">
+					<h2 id="center">What are the head lines for today?</h2>
+					<a href="#">This will answer your question</a>
+					<p><b>That's</b> all for today folks</p>
+				</div>
+				<div id="navbar">
+					<a class="green" href="#Home">Home</a>
+					<a href="#bird">Bird</a>
+					<a href="#mammal">Mammal</a>
+					<a href="#reptile">Reptile</a>
+					<a href="#fish">Fish</a>
+					<a href="#footer">footer</a>
+				</div>
+				<div id="mysidenav">
+					<a href="#" id="about_us" onclick="alert('we are a group of children who program websites!')">about us</a>
+					<a href="#" id="feedback" onclick="alert('click footer in the to navigation bar')">feedback</a>
+					<a href="#" id="our_email"onclick="alert('our email is vidyutsid@gmail.com')">our email</a>
+					<a href="#" id="rate_us"onclick="alert('error')">rate us</a>
+				</div>
+
+				<h2 class="center">Bird</h2>
+				<img id="bird" src="/home/siddjs/Singapore/DSC_JPG1629." width="1000" height="1000">
+				<h2 class="center">Mammal</h2>
+				<img id="mammal" src="/home/siddjs/Downloads/html image-bear.jpg" width=1000 hieght=1000>
+				<h2 class="center">Reptile</h2>
+				<img id="reptile" src="/home/siddjs/Downloads/html image-cameleon.jpg" width="1000" height="1000">
+				<h2 class="center">Fish</h2>
+				<img id="fish" src="/home/siddjs/Downloads/html image-fish.jpg" width="1000" height="1000">
+				<div id="footer">
+					<button id="b1" class="cssbutton" onclick="start(id)">Like this app?</button>
+					<button id="b2" class="cssbutton" onclick="start(id)">Don't like this app?</button>
+					<button id="b3" class="cssbutton" onclick="start(id)">Reset</button>
+					<h2 id="write">Server responce...</h2>
+					<div class="dropdown">
+						<button class="dropbtn">dropdown
+							<i class="fa fa-caret-down"></i>
+						</button>
+						<div class="dropdown-content">
+							<a href="#">feedback page!</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<script>
+				window.onscroll = function() {myFunction()};
+
+				var navbar = document.getElementById("navbar");
+				var sticky = navbar.offsetTop;
+
+					function myFunction()
+					{
+  						if (window.pageYOffset >= sticky)
+						{
+    						navbar.classList.add("sticky")
+						}
+   						else
+						{
+    						navbar.classList.remove("sticky");
+  						}
+					}
+			</script>
+			<script>
+				function start(id)
+				{
+					if (id == "b1")
+					{
+						document.getElementById("write").innerHTML = "you like this then you'll be ready to see the next update. :)";
+					}
+					else if (id == "b2")
+					{
+						document.getElementById("write").innerHTML = "Thanks for your feedback and we promise that the next update will be your expectation.";
+					}
+					else
+					{
+						document.getElementById("write").innerHTML = "Server responce...";
+					}
+				}
+			</script>
+			<script>
+				function done()
+				{
+					timer = setTimeout(show, 4000);
+				}
+				function show()
+				{
+					document.getElementById("loader").style.display = "none";
+					document.getElementById("content").style.display = "block";
+				}
+			</script>
+		</body>
+</html> 
