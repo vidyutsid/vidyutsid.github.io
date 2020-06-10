@@ -24,3 +24,8 @@
   background-color: #4CAF50;
   color: white;
 }
+#navbar a:hover:not(".green")
+{
+  background-color: #ddd;
+  color: black;
+}
