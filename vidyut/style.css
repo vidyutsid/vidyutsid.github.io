@@ -19,12 +19,12 @@
   padding: 16px 18px;
   text-decoration: none;
 }
-#navbar a.green
+#navbar a.home
 {
   background-color: #4CAF50;
   color: white;
 }
-#navbar a:hover:not(".green")
+#navbar a:hover:not(.home)
 {
   background-color: #ddd;
   color: black;
