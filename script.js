@@ -10,7 +10,7 @@ function start(id)
   }
   else
   {
-    document.getElementById("write").innerHTML = "Server responce...";
+    document.getElementById("write").innerHTML = "Server responce....";
   }
 }
 window.onscroll = function() {myFunction()};
