@@ -25,12 +25,3 @@ function start(id)
     document.getElementById("write").innerHTML = "Server responce...";
   }
 }
-function done()
-{
-  timer = setTimeout(show, 4000);
-}
-function show()
-{
-  document.getElementById("loader").style.display = "none";
-  document.getElementById("content").style.display = "block";
-}
