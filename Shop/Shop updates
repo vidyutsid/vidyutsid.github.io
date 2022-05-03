@@ -1,6 +1,7 @@
 Version 1.5(Curent Version):
 1.Added the posibility to see the name, unit price, and stock of all items in a set category in the "update stock" feature
 2.Simplified shopping by calling a common function
+3.Item indexing has now been made a common function
 Version 1.4:
 	Updates:
 1.Completed management category
