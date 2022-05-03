@@ -1,10 +1,13 @@
-Version 1.4(current version):
+Version 1.5(Curent Version):
+1.Added the posibility to see the name, unit price, and stock of all items in a set category in the "update stock" feature
+2.Simplified shopping by calling a common function
+Version 1.4:
 	Updates:
 1.Completed management category
 2.added the possibility to see the see the stocks of the items in shopping menu
 Version 1.3:
 	Updates:
-1.Added a proper shopping cart with adding, remocing, and billing items
+1.Added a proper shopping cart with adding, removing, and billing items
 2.Removed useless functionalities
 
 Version 1.2:

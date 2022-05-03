@@ -1,8 +1,7 @@
-def addtocart(nameofphone, Quantityofphone, unitprice, stock):
-                total = 0;
-                updateditemstock = stock - quantityofitem;
+def addtocart(nameofitem, Quantityofitem, unitprice, stock, item):
+                updateditemstock = stock - Quantityofitem;
                 item.update({"Stock" : updateditemstock})
-                cartitem = {"name" : nameofitem,"unitprice" : unitprice,"Quantity" : quantityofitem}
+                cartitem = {"name" : nameofitem,"unitprice" : unitprice,"Quantity" : Quantityofitem}
                 Shoppingcart.append(cartitem)
                 cont = input("Do you want to contunue shopping?[Y/N]")
                 if (cont == "N"):
@@ -15,6 +14,30 @@ def decipher(cipheredtext,shift):
         for c in variable:
             result += c;
     return result
+def itemscanning(nameofitem, Quantityofitem, typeofproduct, item):
+    item = "";
+    for item in typeofproduct:
+        if (item["name"] == nameofitem):
+            if (item["Stock"] >= Quantityofitem):
+                unitprice = item["unitprice"];
+                stock = item["Stock"];
+                addtocart(nameofitem, Quantityofitem, unitprice, stock, item)
+            else:
+                print("Out of stock!")
+def shopping(catag):
+    print("The list of items are:")
+    for stuff in catag:
+        list = "Name :", stuff["name"],"Unitprice :", stuff["unitprice"],"Stock :", stuff["Stock"];
+        print(list)
+    nameofitem = input("\nName of the item:")
+    Quantityofitem = int(input("Quantity of the product:"))
+    item = "";
+    itemscanning(nameofitem, Quantityofitem, catag, item)
+def list(whatcategory):
+    print("The list of items are:")
+    for stuffs in whatcategory:
+        list = "Name :", stuffs["name"],"Unitprice :", stuffs["unitprice"],"Stock :", stuffs["Stock"];
+        print(list)
 item1 = {
     "name" : "iphone 13",
     "unitprice" : 69999,
@@ -45,72 +68,35 @@ while (closemainmenu == False):
     if (pick == 1):
         quitsale = False;
         while (quitsale == False):
+            unitprice = 0;
+            stock = 0;
+            Quantityofitem = 0;
+            nameofitem = "";
             print("Welcome to shopping, browse through the menu, and select which category of items you need")
             shoppingcategory = int(input("1.Smartphones\n2.Televisions\n3.Quit\n"))
             if (shoppingcategory == 1):
-                print("The list of smartphones are:")
-                for x in smartphones:
-                    list = "Name :", x["name"],"Unitprice :", x["unitprice"],"Stock :", x["Stock"];
-                    print(list)
-                    Quantityofphone = int(input("Quantity of the item:"))
-                nameofphone = input("\nName of the smartphone:");
-                for item in smartphones:
-                    if (item["name"] == nameofphone):
-                        if (item["Stock"] >= Quantityofphone):
-                            unitprice = item["unitprice"];
-                            Stock = item["Stock"];
-                            phonecartadd(nameofphone, Quantityofphone, unitprice, Stock)
+                catag = smartphones;
+                shopping(catag)
             elif(shoppingcategory == 2):
-                print("The list of televisions are:")
-                for stuff in Televisions:
-                    list = "Name :", stuff["name"],"Unitprice :", stuff["unitprice"],"Stock :", stuff["Stock"];
-                    print(list)
-                nameoftv = input("\nName of television:")
-                Quantityoftv = int(input("Quantity of the product:"))
-                for tv in Televisions:
-                    if (tv["name"] == nameoftv):
-                        if (tv["Stock"] >= Quantityoftv):
-
-                            addtocart
-                        else:
-                            print("Out of stock!")
+                catag = Televisions
+                shopping(catag)
             else:
                 quitsale = True;
     elif (pick == 2):
+        catag = "";
         print("Your shopping cart is:\n", Shoppingcart)
-        editshoppingcart = input("If you'd like to add an item to your shopping cart enter 'Add', if you want to remove an item, enter 'Remove', for billing press any key, and enter")
+        editshoppingcart = input("If you'd like to add an item to your shopping cart enter 'Add', if you want to remove an item, enter 'Remove', for billing press any key, and enter\n")
         if (editshoppingcart == "Add"):
-            category = input("What category does this item belong to?")
-            if (category == "Phone"):
-                print("The list of smartphones are:")
-                for x in smartphones:
-                    list = "Name :", x["name"],"Unitprice :", x["unitprice"];
-                    print(list)
-                nameofphone = input("\nName of the smartphone:");
-                Quantityofphone = int(input("Quantity of the item:"))
-                for item in smartphones:
-                    if (item["name"] == nameofphone):
-                        if (item["Stock"] >= Quantityofphone):
-                            unitprice = item["unitprice"];
-                            Stock = item["Stock"];
-                            phonecartadd(nameofphone, Quantityofphone, unitprice, Stock)
-                        else:
-                            print("Out of stock!")
-            if (category == "Television"):
-                print("The list of televisions are:")
-                for stuff in Televisions:
-                    list = "Name :", stuff["name"],"Unitprice :", stuff["unitprice"]
-                    print(list)
-                nameoftv = input("\nName of television:")
-                Quantityoftv = int(input("Quantity of the product:"))
-                for tv in Televisions:
-                    if (tv["name"] == nameoftv):
-                        if (tv["Stock"] >= Quantityoftv):
-                            tvstock = tv["Stock"];
-                            tvUnitprice = tv["unitprice"]
-                            tvcartadd(nameoftv, Quantityoftv, tvUnitprice, tvstock, closemainmenu)
-                        else:
-                            print("Out of stock!")
+            print("category not available at the moment due to reliability issues, sorry for the inconvenience")
+            category = input("What category does this item belong to? [smartphones/Televisions]")
+            if (category == "smartphones"):
+                catag = smartphones;
+                shopping(catag)
+            elif (category == "Television"):
+                catag = Televisions;
+                shopping()
+            else:
+                print("Catergory does not exist, please try again")
         elif (editshoppingcart == "Remove"):
             itemname = input("What is the name of the item you want to remove?")
             for v in Shoppingcart:
@@ -128,9 +114,11 @@ while (closemainmenu == False):
             if (payment == "Y"):
                 print("Thank you for purchasing, hope to see you again!")
                 quit()
-            else:
+            elif (payment == "N"):
                 print("Payment cancelled")
                 quit()
+            else:
+                print("Error, wrong key, no condintion has been satisfied")
     elif(pick == 3):
         print("Welcome to the management section, to continue please enter the pasword to access this section")
         print("Hint: Shift = 4, PASSSORD")
@@ -145,9 +133,9 @@ while (closemainmenu == False):
                 print("Welcome to add item, here you have to select which category you want to add an item to, and then input the item's details")
                 whatcategory = input("What category does it belong to? [smartphones/Televisions]?")
                 if (whatcategory == "smartphones"):
-                    whatcategory = smartphones;
+                    whatcategory = smartphones
                 elif (whatcategory == "Televisions"):
-                    whatcategory = Televisions;
+                    whatcategory = Televisions
                 whatname = input("What is to name of this item supposed to be?")
                 whatunitprice = int(input("What is the unit price of this item?"))
                 whatstock = int(input("What is the current stock of this item?"))
@@ -173,8 +161,9 @@ while (closemainmenu == False):
                     whatcategory = smartphones;
                 elif (whatcategory == "Televisions"):
                     whatcategory = Televisions;
-                stockitemname = input("What is the name of the item?")
-                stockupdate = int(input("What is the updated stock(+/-)"))
+                list(whatcategory)
+                stockitemname = input("name of item:")
+                stockupdate = int(input("updated stock of item(+/-):"))
                 for prod in whatcategory:
                     if (prod["name"] == stockitemname):
                         updatestock = prod["Stock"] + stockupdate;
